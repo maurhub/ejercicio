@@ -1,0 +1,19 @@
+[2018-07-06 13:37:16] local.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Call to undefined function openssl_encrypt() in C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Encryption\Encrypter.php:67
+Stack trace:
+#0 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(131): Illuminate\Encryption\Encrypter->encrypt('vsubXkcppNZXIG7...')
+#1 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Cookie\Middleware\EncryptCookies->encrypt(Object(Illuminate\Http\Response))
+#2 [internal function]: Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#3 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(124): call_user_func_array(Array, Array)
+#4 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(44): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#5 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#6 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(124): call_user_func_array(Array, Array)
+#7 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#8 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(102): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#9 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(122): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#10 C:\Users\maur\Desktop\Nueva carpeta\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(87): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#11 C:\Users\maur\Desktop\Nueva carpeta\public\index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#12 C:\Users\maur\Desktop\Nueva carpeta\server.php(21): require_once('C:\\Users\\maur\\D...')
+#13 {main}  
+[2018-07-06 13:46:57] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function openssl_encrypt()' in C:\Users\maur\Desktop\UniServerZ\www\ejercicio\vendor\laravel\framework\src\Illuminate\Encryption\Encrypter.php:67
+Stack trace:
+#0 {main}  
