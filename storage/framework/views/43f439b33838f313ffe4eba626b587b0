@@ -1,0 +1,80 @@
+<?php $__env->startSection('content'); ?>
+
+<?php if(count($errors) > 0): ?>
+    <div class="alert alert-danger">
+        <ul>
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<?php if($proveedor->id): ?>
+<?php $__env->startSection('title', 'Editar Proveedor'); ?>
+<form class="needs-validation" action="<?php echo e(route('updateProveedor', $proveedor->id)); ?>" method="post" novalidate>
+  <input type="hidden" name="_method" value="put">
+<?php else: ?>
+<?php $__env->startSection('title', 'Nuevo Proveedor'); ?>
+<form class="needs-validation" action="<?php echo e(route('storeProveedor')); ?>" method="post" novalidate>
+<?php endif; ?>
+
+  <?php echo e(csrf_field()); ?>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputDireccion">Dirección</label>
+      <input
+        type="text"
+        name="direccion"
+        class="form-control"
+        id="inputDireccion"
+        placeholder="Dirección"
+        value="<?php echo e(old('direccion', $proveedor->direccion)); ?>"
+        required>
+      <div class="invalid-feedback">
+        Por favor agregue una dirección
+      </div>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputTelefono">Teléfono (Opcional)</label>
+      <input
+        type="text"
+        name="telefono"
+        class="form-control"
+        id="inputTelefono"
+        placeholder="Teléfono"
+        value="<?php echo e(old('telefono', $proveedor->telefono)); ?>">
+    </div>
+  </div>
+
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputFechaAlta">Fecha de alta</label>
+        <input
+          type="datetime-local"
+          name="fecha_alta"
+          class="form-control"
+          id="inputFechaAlta"
+          value="<?php echo e(old('fecha_alta', Carbon\Carbon::now()->format('Y-m-d')."T".Carbon\Carbon::now()->format('H:i'))); ?>"
+          required>
+        <div class="invalid-feedback">
+          Por favor agregue una fecha válida
+        </div>
+      </div>
+  </div>
+
+<?php if($proveedor->id): ?>
+  <button class="btn btn-success" type="submit">Modificar</button>
+<?php else: ?>
+  <button class="btn btn-success" type="submit">Agregar</button>
+<?php endif; ?>
+
+</form>
+
+<script type="text/javascript" src="/js/front-validation.js"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.home', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,42 @@
+<table class="table table-striped">
+
+  <thead class="table-header text-white bg-dark">
+    <tr>
+      <th scope="col">Número de remito</th>
+      <th scope="col">Fecha de emisión</th>
+      <th scope="col">Monto total</th>
+      <th scope="col">Proveedor</th>
+      <th scope="col" colspan="2">
+        <a href="<?php echo e(route('createRemito')); ?>">
+          <img class="icon" src="<?php echo e(URL::to('/')); ?>/images/add.png" alt="add">
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <?php foreach( $remitos as $rem ): ?>
+
+    <tr>
+      <td><?php echo e($rem->id); ?></td>
+      <td><?php echo e($rem->fecha_emision); ?></td>
+      <td><?php echo e($rem->monto_total); ?></td>
+      <td><?php echo e($rem->proveedor_id); ?></td>
+      <td>
+        <a href="<?php echo e(route('editRemito', $rem->id)); ?>">
+          <img class="icon" src="<?php echo e(URL::to('/')); ?>/images/edit.png" alt="edit"></td>
+        </a>
+      <td>
+        <form action="<?php echo e(route('destroyRemito', $rem->id)); ?>" method="post">
+          <?php echo e(csrf_field()); ?>
+
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="proveedor_id" value="<?php echo e($rem->proveedor_id); ?>">
+          <input class="icon" type="image" name="submit" src="<?php echo e(URL::to('/')); ?>/images/delete.png" alt="delete">
+        </form>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+
+  </tbody>
+</table>

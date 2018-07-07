@@ -1,0 +1,41 @@
+<table class="table table-striped">
+
+  <thead class="table-header text-white bg-dark">
+    <tr>
+      <th scope="col">Proveedor</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Fecha de alta</th>
+      <th scope="col" colspan="2">
+        <a href="<?php echo e(route('createProveedor')); ?>">
+          <img class="icon" src="images/add.png" alt="add">
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <?php foreach( $proveedores as $prov ): ?>
+
+    <tr class="clickable_row" onclick="window.location.href = '<?php echo e(route('remitos', $prov->id)); ?>';">
+      <td><?php echo e($prov->id); ?></td>
+      <td><?php echo e($prov->direccion); ?></td>
+      <td><?php echo e($prov->telefono); ?></td>
+      <td><?php echo e($prov->fecha_alta); ?></td>
+      <td>
+        <a href="<?php echo e(route('editProveedor', $prov->id)); ?>">
+          <img class="icon" src="images/edit.png" alt="edit"></td>
+        </a>
+      <td>
+        <form action="<?php echo e(route('destroyProveedor', $prov->id)); ?>" method="post">
+          <?php echo e(csrf_field()); ?>
+
+          <input type="hidden" name="_method" value="delete">
+          <input class="icon" type="image" name="submit" src="images/delete.png" alt="delete">
+        </form>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+
+  </tbody>
+</table>
