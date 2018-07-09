@@ -39,7 +39,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    //'timezone' => 'UTC',
+    'timezone' => 'ART', //Changed timezone to Argentina
 
     /*
     |--------------------------------------------------------------------------

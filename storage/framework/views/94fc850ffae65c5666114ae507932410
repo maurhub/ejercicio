@@ -1,0 +1,9 @@
+<?php $__env->startSection('title', 'Remitos'); ?>
+
+<?php $__env->startSection('content'); ?>
+  <div class="content">
+    <?php echo $__env->make('tables.remitos_proveedor', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.home', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

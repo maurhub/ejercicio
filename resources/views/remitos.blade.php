@@ -1,9 +1,9 @@
 @extends('layouts.home')
 
-@section('title', 'Proveedores')
+@section('title', 'Remitos')
 
 @section('content')
   <div class="content">
-      @include('tables.proveedores')
+    @include('tables.remitos_proveedor')
   </div>
 @endsection
